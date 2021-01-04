@@ -18,7 +18,7 @@ using Taste.Utility;
 using Stripe;
 using Taste.DataAccess.Data.Initializer;
 using Microsoft.AspNetCore.Identity.UI.Services;
-
+using MySql.Data.EntityFrameworkCore;
 namespace Taste
 {
     public class Startup
@@ -35,7 +35,7 @@ namespace Taste
         {
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
+                options.UseMySQL(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<IdentityUser,IdentityRole>()
                 .AddDefaultTokenProviders()
