@@ -19,6 +19,11 @@ using Stripe;
 using Taste.DataAccess.Data.Initializer;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using MySql.Data.EntityFrameworkCore;
+using Microsoft.AspNetCore.DataProtection;
+using System.IO;
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
+
 namespace Taste
 {
     public class Startup
@@ -69,12 +74,18 @@ namespace Taste
                 facebookOptions.AppSecret = "12a5afdee0a6d3b0a52df2a702d1737c";
             });
 
-            services.AddAuthentication().AddMicrosoftAccount(options =>
-            {
-                options.ClientId = "708aabec-01ae-4674-af5b-a2605b0ac2df";
-                options.ClientSecret = "_BPXHMsO-A++jOfPks1cgsKjmey65r9H";
-            });
-            
+            //services.AddAuthentication().AddMicrosoftAccount(options =>
+            //{
+            //    options.ClientId = "708aabec-01ae-4674-af5b-a2605b0ac2df";
+            //    options.ClientSecret = "_BPXHMsO-A++jOfPks1cgsKjmey65r9H";
+            //});
+
+            //services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(@"C:\temp-keys\"))
+            //    .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration()
+            //    {
+            //        EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
+            //        ValidationAlgorithm = ValidationAlgorithm.HMACSHA256
+            //    });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

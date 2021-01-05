@@ -10,7 +10,7 @@ WORKDIR /src
 COPY ["Taste/Taste.csproj", "Taste/"]
 RUN dotnet restore "Taste/Taste.csproj"
 COPY . .
-WORKDIR "/shopping/Taste"
+WORKDIR "Taste"
 RUN dotnet build "Taste.csproj" -c Release -o /app/build
 
 FROM build AS publish
