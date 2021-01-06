@@ -1,0 +1,48 @@
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
+WORKDIR /app
+
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+WORKDIR /src
+COPY ["Taste/Taste.csproj", "Taste/"]
+RUN dotnet restore "Taste/Taste.csproj"
+COPY . .
+WORKDIR "Taste"
+RUN dotnet build "Taste.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "Taste.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Taste.dll"]
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet Taste.dll
+
+#
+#
+##Grab the latest alpine image
+#FROM alpine:latest
+#
+## Install python and pip
+#RUN apk add --no-cache --update python3 py3-pip bash
+#ADD ./webapp/requirements.txt /tmp/requirements.txt
+#
+## Install dependencies
+#RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
+#
+## Add our code
+#ADD ./webapp /opt/webapp/
+#WORKDIR /opt/webapp
+#
+## Expose is NOT supported by Heroku
+## EXPOSE 5000 		
+#
+## Run the image as a non-root user
+#RUN adduser -D myuser
+#USER myuser
+#
+## Run the app.  CMD is required to run on Heroku
+## $PORT is set by Heroku			
+#CMD gunicorn --bind 0.0.0.0:$PORT wsgi 
