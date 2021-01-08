@@ -10,9 +10,9 @@
 {
     @if(Model.MenuItemList.Where(c=>c.CategoryId==category.Id).Count() >0)
     {
-        <div class="row container pb-3 backgroundWhite">
-            <div class="col-12">
-                <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
                     <h2 class="text-success pl-1"><b>@category.Name</b></h2>
 
                     <div class="col-12">
