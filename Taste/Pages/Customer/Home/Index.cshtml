@@ -4,6 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
+<partial name="_Carousel" />
+
 @foreach(var category in Model.CategoryList)
 {
     @if(Model.MenuItemList.Where(c=>c.CategoryId==category.Id).Count() >0)
@@ -43,4 +45,3 @@
         </div>
     }
 }
-
