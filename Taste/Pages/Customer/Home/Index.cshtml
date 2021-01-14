@@ -1,14 +1,19 @@
 ﻿@page
 @model Taste.Pages.Customer.Home.IndexModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Home";
+}
+@section css
+{
+    <link rel="stylesheet" href="~/css/customer-home.css" />
 }
 
 <partial name="_Carousel" />
+<partial name="_Services" />
 
-@foreach(var category in Model.CategoryList)
+@*@foreach (var category in Model.CategoryList)
 {
-    @if(Model.MenuItemList.Where(c=>c.CategoryId==category.Id).Count() >0)
+    @if (Model.MenuItemList.Where(c => c.CategoryId == category.Id).Count() > 0)
     {
         <div class="container">
             <div class="row">
@@ -17,7 +22,7 @@
 
                     <div class="col-12">
                         <div class="row my-3">
-                            @foreach(var menuItem in Model.MenuItemList.Where(c => c.CategoryId == category.Id))
+                            @foreach (var menuItem in Model.MenuItemList.Where(c => c.CategoryId == category.Id))
                             {
                                 <div class="col-lg-3 col-xl-3 col-md-6 pb-4">
                                     <div class="card" style="border:2px solid #008cba; border-radius: 5px; ">
@@ -33,15 +38,13 @@
                                         <img src="@menuItem.Image" class="card-img-top p-2 rounded" />
 
                                         <a asp-page="Details" class="btn btn-primary" style="border-radius:2px;" asp-route-id="@menuItem.Id">Details</a>
-
                                     </div>
                                 </div>
                             }
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     }
-}
+}*@
