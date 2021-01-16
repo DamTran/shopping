@@ -9,7 +9,8 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #76aa6f;
+    /*#0366d6*/
 }
 
 a:hover {
@@ -204,4 +205,12 @@ body {
 .carousel-control-next:hover span,
 .carousel-control-next:focus span {
   border-bottom: 2px solid white;
+}
+
+.bg-my-shope {
+    background: #76aa6f;
+}
+
+.text-my-shope {
+    color: #76aa6f;
 }
