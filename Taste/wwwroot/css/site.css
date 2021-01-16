@@ -12,6 +12,10 @@ a {
   color: #0366d6;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
