@@ -2,88 +2,89 @@
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 
-    <div class="container text-info">
-        <div class="row my-4">
-            <div class="col-4">
-                <a href="#">Call us: +1 (844) 123 456 78</a>
-                <br />
-                <a class="text-my-shope" href="#">info@demolink.org</a>
-            </div>
-            <div class="col-4 text-center">
-                <h1>
-                    <a class="text-my-shope" asp-area="" asp-page="/Index">Fruits</a>
-                </h1>
-            </div>
-            <div class="col-4 text-right nav-link text-white ">
-                <h4>
-                    <a href="#" class="text-decoration-none m-1 text-my-shope">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    @if (HttpContextAccessor.HttpContext.Session.GetInt32(SD.ShoppingCart) != null)
-                    {
-                        <a asp-page="/Customer/Cart/Index" class="m-1 text-my-shope">
-                            @{
-                                var count = HttpContextAccessor.HttpContext.Session.GetInt32(SD.ShoppingCart);
-                            }
-                            <i class="fas fa-shopping-cart">(@count)</i>
-                        </a>
+<div class="container text-info">
+    <div class="row my-4">
+        <div class="col-4">
+            <a href="#">Call us: +1 (844) 123 456 78</a>
+            <br />
+            <a class="text-my-shope" href="#">info@demolink.org</a>
+        </div>
+        <div class="col-4 text-center">
+            <h1>
+                <a class="text-my-shope" asp-area="" asp-page="/Index">Fruits</a>
+            </h1>
+        </div>
+        <div class="col-4 text-right nav-link text-white d-flex">
+            <span class="input-group mb-3 float-left">
+                <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-append">
+                    <a class="btn btn-success"><i class="fas fa-search"></i></a>
+                </span>
+            </span>
+            @if (HttpContextAccessor.HttpContext.Session.GetInt32(SD.ShoppingCart) != null)
+            {
+                <a asp-page="/Customer/Cart/Index" class="m-1 text-my-shope">
+                    @{
+                        var count = HttpContextAccessor.HttpContext.Session.GetInt32(SD.ShoppingCart);
                     }
-                    else
-                    {
-                        <a href="#" class="m-1">
-                            <i class="fas fa-shopping-cart text-my-shope">(0)</i> 
-                        </a>
-                    }
-                </h4>
-            </div>
+                    <i class="fas fa-shopping-cart">(@count)</i>
+                </a>
+            }
+            else
+            {
+                <a href="#" class="m-2 h4">
+                    <i class="fas fa-shopping-cart text-my-shope">(0)</i>
+                </a>
+            }
         </div>
     </div>
-    <nav class="navbar navbar-expand-sm bg-my-shope sticky-top">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-flex">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" asp-area="" asp-page="/Index">Home</a>
+</div>
+<nav class="navbar navbar-expand-sm bg-my-shope sticky-top">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-flex">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" asp-area="" asp-page="/Index">Home</a>
+                </li>
+                @if (User.IsInRole(SD.ManagerRole))
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropDown" data-toggle="dropdown">
+                            Admin
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" asp-page="/Admin/Category/Index">Category</a>
+                            <a class="dropdown-item" asp-page="/Admin/FoodType/Index">Food Type</a>
+                            <a class="dropdown-item" asp-page="/Admin/MenuItem/Index">Menu Item</a>
+                            <a class="dropdown-item" asp-page="/Admin/User/Index">Users</a>
+                        </div>
                     </li>
-                    @if (User.IsInRole(SD.ManagerRole))
-                    {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropDown" data-toggle="dropdown">
-                                Admin
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-page="/Admin/Category/Index">Category</a>
-                                <a class="dropdown-item" asp-page="/Admin/FoodType/Index">Food Type</a>
-                                <a class="dropdown-item" asp-page="/Admin/MenuItem/Index">Menu Item</a>
-                                <a class="dropdown-item" asp-page="/Admin/User/Index">Users</a>
-                            </div>
-                        </li>
-                    }
+                }
 
-                    @if (User.IsInRole(SD.ManagerRole) || User.IsInRole(SD.KitchenRole))
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-page="/Admin/Order/ManageOrder">Manage Order</a>
-                        </li>
-                    }
-                    @if (User.IsInRole(SD.ManagerRole) || User.IsInRole(SD.FrontDeskRole))
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-page="/Admin/Order/OrderList">Order Pickup</a>
-                        </li>
-                    }
-                    @if (User.IsInRole(SD.CustomerRole))
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-page="/Admin/Order/OrderList">Order History</a>
-                        </li>
-                    }
-                </ul>
-                <partial name="_LoginPartial" />
-            </div>
+                @if (User.IsInRole(SD.ManagerRole) || User.IsInRole(SD.KitchenRole))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-page="/Admin/Order/ManageOrder">Manage Order</a>
+                    </li>
+                }
+                @if (User.IsInRole(SD.ManagerRole) || User.IsInRole(SD.FrontDeskRole))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-page="/Admin/Order/OrderList">Order Pickup</a>
+                    </li>
+                }
+                @if (User.IsInRole(SD.CustomerRole))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-page="/Admin/Order/OrderList">Order History</a>
+                    </li>
+                }
+            </ul>
+            <partial name="_LoginPartial" />
         </div>
-    </nav>
+    </div>
+</nav>
