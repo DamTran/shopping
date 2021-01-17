@@ -19,7 +19,7 @@ namespace Taste.Pages
 
         public IActionResult OnGet()
         {
-            return RedirectToPage("/Customer/Home/Index");
+            return RedirectToPage("/Home/Index");
         }
     }
 }
