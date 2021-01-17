@@ -39,8 +39,16 @@ namespace Taste
         {
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+            {
+                if (true)
+                {
+                    options.UseMySQL(Configuration.GetConnectionString("DefaultConnection"));
+                }
+                else
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("SqlServerConnection"));
+                }
+            });
             services.AddIdentity<IdentityUser,IdentityRole>()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI(UIFramework.Bootstrap4)
@@ -107,7 +115,7 @@ namespace Taste
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSession();
-            dbInitializer.Initialize();
+            //dbInitializer.Initialize();
 
 
             app.UseRouting();

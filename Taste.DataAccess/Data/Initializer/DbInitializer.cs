@@ -23,7 +23,6 @@ namespace Taste.DataAccess.Data.Initializer
             _userManager = userManager;
         }
 
-
         public void Initialize()
         {
             try
