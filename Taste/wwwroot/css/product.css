@@ -48,6 +48,10 @@
         z-index: -1;
     }
 
+        .product:hover:before {
+            background-color: white;
+        }
+
 .product-2 .product-figure {
     min-height: 220px;
 }
