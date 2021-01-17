@@ -26,14 +26,14 @@ namespace Taste.Pages.Customer.Home
             var claimsIdentity = (ClaimsIdentity)this.User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-            //if (claim != null)
-            //{
-            //    int shoppingCartCount = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value).ToList().Count;
-            //    HttpContext.Session.SetInt32(SD.ShoppingCart, shoppingCartCount);
-            //}
+            if (claim != null)
+            {
+                int shoppingCartCount = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value).ToList().Count;
+                HttpContext.Session.SetInt32(SD.ShoppingCart, shoppingCartCount);
+            }
 
-            //MenuItemList = _unitOfWork.MenuItem.GetAll(null, null, "Category,FoodType");
-            //CategoryList = _unitOfWork.Category.GetAll(null, q => q.OrderBy(c => c.DisplayOrder), null);
+            MenuItemList = _unitOfWork.MenuItem.GetAll(null, null, "Category,FoodType");
+            CategoryList = _unitOfWork.Category.GetAll(null, q => q.OrderBy(c => c.DisplayOrder), null);
         }
     }
 }

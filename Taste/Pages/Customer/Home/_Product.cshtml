@@ -1,11 +1,13 @@
-﻿<div class="col-sm-6 col-md-4 col-lg-3 pl-sm-3 pt-sm-4">
+﻿@model Taste.Models.MenuItem
+
+<div class="col-sm-6 col-md-4 col-lg-3 pl-sm-3 pt-sm-4">
     <!-- Product-->
     <article class="product card">
         <div class="product-body">
             <div class="product-figure">
                 <img src="~/images/product-1-95x175.png" alt="" width="95" height="175" />
             </div>
-            <h5 class="product-title"><a href="#">Mango</a></h5>
+            <h5 class="product-title"><a href="#">@Model.Name</a></h5>
             <div class="product-price-wrap">
                 <div class="product-price product-price-old">$30.00</div>
                 <div class="product-price">$23.00</div>
