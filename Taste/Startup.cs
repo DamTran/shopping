@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.DataProtection;
 using System.IO;
 using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
 using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
+using Microsoft.AspNetCore.Routing;
 
 namespace Taste
 {
@@ -70,8 +71,19 @@ namespace Taste
 
             //services.AddMvc(options => options.EnableEndpointRouting = false)
             //    .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_0);
-
-            services.AddRazorPages();
+			
+			services.Configure<RouteOptions>(options =>
+			{
+				options.LowercaseUrls = true;
+				options.LowercaseQueryStrings = true;
+				options.AppendTrailingSlash = true;
+			});
+			
+            services.AddRazorPages()
+				.AddRazorPagesOptions(options =>
+				{
+					options.Conventions.AddPageRoute("/AboutUs/Index", "about-us");
+				});
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddAuthentication().AddFacebook(facebookOptions =>
             {
