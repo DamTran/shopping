@@ -45,10 +45,17 @@
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+		<div class="navbar-collapse collapse"></div>
         <div class="navbar-collapse collapse d-sm-flex">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" asp-area="" asp-page="/Index">Home</a>
+                    <a class="nav-link text-white" asp-area="" asp-page="/Index"><i class="fa fa-home"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" asp-area="" asp-page="/AboutUs/Index">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" asp-area="" asp-page="/Products/Index">Products</a>
                 </li>
                 @if (User.IsInRole(SD.ManagerRole))
                 {
@@ -84,7 +91,7 @@
                     </li>
                 }
             </ul>
-            <partial name="_LoginPartial" />
+            <!--<partial name="_LoginPartial" />-->
         </div>
     </div>
 </nav>
