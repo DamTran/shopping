@@ -215,3 +215,16 @@ body {
     font-family: 'Kaushan Script', cursive;
     color: #76aa6f;
 }
+
+.row-50 > * {
+    margin-bottom: 50px;
+}
+
+.row-30 {
+    margin-bottom: -30px;
+}
+
+html .group-md {
+    margin-bottom: -20px;
+    margin-left: -25px;
+}
