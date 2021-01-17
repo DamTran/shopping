@@ -10,7 +10,7 @@
 
 <partial name="_Carousel" />
 <partial name="_Services" />
-<partial name="_Product" />
+<partial name="Products" />
 @*@foreach (var category in Model.CategoryList)
     {
         @if (Model.MenuItemList.Where(c => c.CategoryId == category.Id).Count() > 0)
