@@ -20,9 +20,9 @@ namespace Taste
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    var port = Environment.GetEnvironmentVariable("PORT");
-                    webBuilder.UseStartup<Startup>()
-                    .UseUrls("http://*:" + port);
+                    //var port = Environment.GetEnvironmentVariable("PORT");
+                    webBuilder.UseStartup<Startup>();
+                    //.UseUrls("http://*:" + port);
                 });
     }
 }
