@@ -78,12 +78,8 @@ namespace Taste
 				options.LowercaseQueryStrings = true;
 				options.AppendTrailingSlash = true;
 			});
-			
-            services.AddRazorPages()
-				.AddRazorPagesOptions(options =>
-				{
-					options.Conventions.AddPageRoute("/AboutUs/Index", "about-us");
-				});
+
+            services.AddRazorPages();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddAuthentication().AddFacebook(facebookOptions =>
             {
