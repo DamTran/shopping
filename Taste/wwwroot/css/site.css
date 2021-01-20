@@ -228,3 +228,41 @@ html .group-md {
     margin-bottom: -20px;
     margin-left: -25px;
 }
+
+html .group-justify {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+html .group-xs {
+    margin-bottom: -15px;
+    margin-left: -15px;
+}
+
+* + .group-xs {
+    margin-top: 30px;
+}
+
+.aside-title {
+    padding-bottom: 14px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.checkbox-custom {
+    top: 2px;
+    left: 0;
+    width: 21px;
+    height: 21px;
+    margin: 0;
+    border: 1px solid #e1e1e1;
+    border-radius: 3px;
+}

@@ -8,11 +8,13 @@
 @section css
 {
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/product.css" />
 }
 
 @section Scripts
 {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script src="~/js/product.js"></script>
 }
@@ -20,53 +22,47 @@
 <section class="section text-md-left mt-4">
     <div class="container">
         <div class="row row-50">
-            <div class="col-lg-4 col-xl-3">
-                <div class="aside row row-30 row-md-50 justify-content-md-between">
+            <div class="col-lg-4 col-xl-3 pl-0 pr-5">
+                <div class="aside row justify-content-md-between">
                     <div class="aside-item col-12">
                         <h6 class="aside-title">Filter by Price</h6>
-                        @*RD Range*@
-                        <div class="rd-range hasTooltip" data-min="0" data-max="999" data-min-diff="100" data-start="[66, 635]" data-step="1" data-tooltip="false" data-input=".rd-range-input-value-1" data-input-2=".rd-range-input-value-2"><div class="rd-range__wrap"><div class="rd-range__pointer rd-range__pointer-1" style="left: 7%;"><div class="rd-range__pointer-tooltip">66</div></div><div class="rd-range__pointer rd-range__pointer-2" style="left: 64%;"><div class="rd-range__pointer-tooltip">635</div></div><div class="rd-range__line" style="left: 7%; width: 57%;"></div> </div></div>
-                        <div class="group-xs group-justify">
+                        <div class="mt-4">
+                            <input id="filter" data-slider-id='filterSlider' type="text" class="bg-white" value=""
+                                   data-slider-min="10"
+                                   data-slider-max="1000"
+                                   data-slider-step="5"
+                                   data-slider-value="[250,450]" />
+                        </div>
+                        <div class="mt-4 group-justify">
                             <div>
-                                <button class="button button-sm button-secondary button-zakaria" type="button">Filter</button>
+                                <button class="btn btn-primary" type="button">Filter</button>
                             </div>
-                            <div>
-                                <div class="rd-range-wrap">
-                                    <div class="rd-range-title">Price:</div>
-                                    <div class="rd-range-form-wrap">
-                                        <span>$</span>
-                                        <input class="rd-range-input rd-range-input-value-1" type="text" name="value-1" style="width: 3.45ch;">
-                                    </div>
-                                    <div class="rd-range-divider"></div>
-                                    <div class="rd-range-form-wrap">
-                                        <span>$</span>
-                                        <input class="rd-range-input rd-range-input-value-2" type="text" name="value-2" style="width: 4.6ch;">
-                                    </div>
-                                </div>
+                            <div class="rd-range-wrap">
+                                <div class="rd-range-title">Price: $$</div>
                             </div>
                         </div>
                     </div>
                     <div class="aside-item col-sm-6 col-md-5 col-lg-12">
-                        <h6 class="aside-title">Categories</h6>
+                        <h6 class="aside-title my-4">Categories</h6>
                         <ul class="list-shop-filter">
                             <li>
                                 <label class="checkbox-inline">
-                                    <input name="input-group-radio" value="checkbox-1" type="checkbox" class="checkbox-custom"><span class="checkbox-custom-dummy"></span>All
+                                    <input name="input-group-radio" value="checkbox-1" type="checkbox" class="checkbox-custom mr-4">All
                                 </label><span class="list-shop-filter-number">(18)</span>
                             </li>
                             <li>
                                 <label class="checkbox-inline">
-                                    <input name="input-group-radio" value="checkbox-2" type="checkbox" class="checkbox-custom"><span class="checkbox-custom-dummy"></span>Organic Food
+                                    <input name="input-group-radio" value="checkbox-2" type="checkbox" class="checkbox-custom mr-4">Organic Food
                                 </label><span class="list-shop-filter-number">(9)</span>
                             </li>
                             <li>
                                 <label class="checkbox-inline">
-                                    <input name="input-group-radio" value="checkbox-3" type="checkbox" class="checkbox-custom"><span class="checkbox-custom-dummy"></span>Health
+                                    <input name="input-group-radio" value="checkbox-3" type="checkbox" class="checkbox-custom mr-4">Health
                                 </label><span class="list-shop-filter-number">(5)</span>
                             </li>
                             <li>
                                 <label class="checkbox-inline">
-                                    <input name="input-group-radio" value="checkbox-4" type="checkbox" class="checkbox-custom"><span class="checkbox-custom-dummy"></span>Smoothies
+                                    <input name="input-group-radio" value="checkbox-4" type="checkbox" class="checkbox-custom mr-4">Smoothies
                                 </label><span class="list-shop-filter-number">(8)</span>
                             </li>
                         </ul>

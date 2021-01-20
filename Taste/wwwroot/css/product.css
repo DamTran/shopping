@@ -20,8 +20,26 @@
     border-bottom: 1px solid #e1e1e1;
 }
 
+/*range*/
+#filterSlider .slider-selection {
+    background: #0479b3;
+}
 
+#filterSlider .slider-track {
+    background: darkseagreen;
+}
 
+.slider.slider-horizontal {
+    width: 240px;
+    height: 20px;
+}
+
+/*List category filter*/
+.list-shop-filter li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 /*right side*/
 
