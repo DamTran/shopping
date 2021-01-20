@@ -12,7 +12,7 @@ using Microsoft.Extensions.Logging;
 namespace Taste.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class LoginWith2faModel : PageModel
+    public class LoginWith2faModel : ApplicationPageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginWith2faModel> _logger;

@@ -13,7 +13,7 @@ using Taste.Utility;
 namespace Taste.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class LogoutModel : PageModel
+    public class LogoutModel : ApplicationPageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LogoutModel> _logger;

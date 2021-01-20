@@ -15,7 +15,7 @@ using Taste.Utility;
 namespace Taste.Pages.Admin.MenuItem
 {
     [Authorize(Roles = SD.ManagerRole)]
-    public class UpsertModel : PageModel
+    public class UpsertModel : ApplicationPageModel
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IWebHostEnvironment _hostingEnvironment;

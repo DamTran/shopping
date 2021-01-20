@@ -14,7 +14,7 @@ using Taste.Utility;
 namespace Taste.Pages.Customer.Home
 {
     [Authorize]
-    public class DetailsModel : PageModel
+    public class DetailsModel : ApplicationPageModel
     {
         private readonly IUnitOfWork _unitOfWork;
 

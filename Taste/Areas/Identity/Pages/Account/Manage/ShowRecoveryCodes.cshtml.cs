@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Taste.Areas.Identity.Pages.Account.Manage
 {
-    public class ShowRecoveryCodesModel : PageModel
+    public class ShowRecoveryCodesModel : ApplicationPageModel
     {
         [TempData]
         public string[] RecoveryCodes { get; set; }

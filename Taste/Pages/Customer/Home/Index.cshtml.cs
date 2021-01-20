@@ -9,7 +9,7 @@ using Taste.Utility;
 
 namespace Taste.Pages.Customer.Home
 {
-    public class IndexModel : PageModel
+    public class IndexModel : ApplicationPageModel
     {
         private readonly IUnitOfWork _unitOfWork;
 

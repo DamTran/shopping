@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Taste.Areas.Identity.Pages.Account.Manage
 {
-    public class ResetAuthenticatorModel : PageModel
+    public class ResetAuthenticatorModel : ApplicationPageModel
     {
         UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;

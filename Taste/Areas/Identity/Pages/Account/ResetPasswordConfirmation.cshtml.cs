@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace Taste.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class ResetPasswordConfirmationModel : PageModel
+    public class ResetPasswordConfirmationModel : ApplicationPageModel
     {
         public void OnGet()
         {

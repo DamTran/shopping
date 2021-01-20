@@ -11,7 +11,7 @@ using Taste.Utility;
 namespace Taste.Pages.Admin.Category
 {
     [Authorize(Roles = SD.ManagerRole)]
-    public class UpsertModel : PageModel
+    public class UpsertModel : ApplicationPageModel
     {
         private readonly IUnitOfWork _unitOfWork;
 

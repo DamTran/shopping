@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.WebUtilities;
 namespace Taste.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class ResetPasswordModel : PageModel
+    public class ResetPasswordModel : ApplicationPageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
 

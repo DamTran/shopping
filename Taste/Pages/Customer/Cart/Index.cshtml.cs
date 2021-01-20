@@ -13,7 +13,7 @@ using Taste.Utility;
 
 namespace Taste.Pages.Customer.Cart
 {
-    public class IndexModel : PageModel
+    public class IndexModel : ApplicationPageModel
     {
         private readonly IUnitOfWork _unitOfWork;
 

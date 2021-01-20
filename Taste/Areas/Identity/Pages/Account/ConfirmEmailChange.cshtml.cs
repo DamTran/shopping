@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.WebUtilities;
 namespace Taste.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class ConfirmEmailChangeModel : PageModel
+    public class ConfirmEmailChangeModel : ApplicationPageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;

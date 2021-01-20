@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Taste.Pages.Customer.Cart
 {
-    public class OrderConfirmationModel : PageModel
+    public class OrderConfirmationModel : ApplicationPageModel
     {
         [BindProperty]
         public int orderId { get; set; }

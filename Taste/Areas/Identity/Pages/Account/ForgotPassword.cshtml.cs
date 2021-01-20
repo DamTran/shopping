@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.WebUtilities;
 namespace Taste.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class ForgotPasswordModel : PageModel
+    public class ForgotPasswordModel : ApplicationPageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IEmailSender _emailSender;

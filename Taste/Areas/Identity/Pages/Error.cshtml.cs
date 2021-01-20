@@ -7,7 +7,7 @@ namespace Taste.Areas.Identity.Pages
 {
     [AllowAnonymous]
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public class ErrorModel : PageModel
+    public class ErrorModel : ApplicationPageModel
     {
         public string RequestId { get; set; }
 

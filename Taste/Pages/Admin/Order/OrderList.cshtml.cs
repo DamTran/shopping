@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Taste.Pages.Admin.Order
 {
-    public class OrderListModel : PageModel
+    public class OrderListModel : ApplicationPageModel
     {
         public IActionResult OnGet()
         {

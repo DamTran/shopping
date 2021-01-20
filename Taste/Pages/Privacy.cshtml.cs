@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Taste.Pages
 {
-    public class PrivacyModel : PageModel
+    public class PrivacyModel : ApplicationPageModel
     {
         private readonly ILogger<PrivacyModel> _logger;
 

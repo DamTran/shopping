@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Taste.Areas.Identity.Pages.Account.Manage
 {
-    public class PersonalDataModel : PageModel
+    public class PersonalDataModel : ApplicationPageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<PersonalDataModel> _logger;

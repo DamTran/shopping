@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace Taste.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class LockoutModel : PageModel
+    public class LockoutModel : ApplicationPageModel
     {
         public void OnGet()
         {

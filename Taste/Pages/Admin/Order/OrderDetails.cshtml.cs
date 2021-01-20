@@ -12,7 +12,7 @@ using Taste.Utility;
 
 namespace Taste.Pages.Admin.Order
 {
-    public class OrderDetailsModel : PageModel
+    public class OrderDetailsModel : ApplicationPageModel
     {
         private readonly IUnitOfWork _unitOfWork;
 

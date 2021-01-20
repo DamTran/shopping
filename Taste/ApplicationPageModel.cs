@@ -20,9 +20,9 @@ namespace Taste
 
     public class ApplicationPageModel : PageModel
     {
-        public ApplicationPageModel(string title)
+        public ApplicationPageModel(string title = null)
         {
-            Title = title;
+            Title = title ?? GetType().Name;
         }
 
         public string Application => "Taste";

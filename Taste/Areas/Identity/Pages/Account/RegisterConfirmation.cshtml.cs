@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.WebUtilities;
 namespace Taste.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class RegisterConfirmationModel : PageModel
+    public class RegisterConfirmationModel : ApplicationPageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IEmailSender _sender;
