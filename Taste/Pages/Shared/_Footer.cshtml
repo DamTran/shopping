@@ -1,7 +1,7 @@
 @model Taste.FooterModel
 
-<footer class="pt-4 my-md-5 pt-md-5 border-top">
+<footer class="pt-4 my-md-5 pt-md-5 border-top text-center">
 	<div class="container">
-		&copy;@DateTime.Today.Year - @Model.Application
+		&copy; @DateTime.Today.Year @Model.Application. All Rights Reserved. <a asp-page="/PrivacyPolicy/Index">Privacy Policy</a>.
 	</div>
 </footer>
