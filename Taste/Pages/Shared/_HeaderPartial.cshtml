@@ -1,13 +1,16 @@
-﻿@using Taste.Utility
+﻿@model Taste.HeaderModel
+
+@using Taste.Utility
 @using Microsoft.AspNetCore.Http
+
 @inject IHttpContextAccessor HttpContextAccessor
 
 <div class="container text-info">
     <div class="row my-4">
         <div class="col-4">
-            <a href="#">Call us: +1 (844) 123 456 78</a>
+            <a href="tel:@Model.Telephone">Call us: @Model.Telephone</a>
             <br />
-            <a href="#">info@demolink.org</a>
+            <a href="mailto:@Model.EmailAddress">@Model.EmailAddress</a>
         </div>
         <div class="col-4 text-center">
             <h1>
