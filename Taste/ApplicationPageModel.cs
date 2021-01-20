@@ -29,7 +29,10 @@ namespace Taste
 
         public object Body { get; set; }
 
-        public FooterModel Footer => new FooterModel();
+        public FooterModel Footer => new FooterModel
+		{
+			Application = Application,
+		};
     }
 
     public class HeaderModel
@@ -45,5 +48,6 @@ namespace Taste
 
     public class FooterModel
     {
+		public string Application { get; set; }
     }
 }
