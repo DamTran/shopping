@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -9,11 +8,11 @@ using Taste.Utility;
 
 namespace Taste.Pages.Home
 {
-    public class IndexModel : PageModel
+    public class IndexModel : ApplicationPageModel
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public IndexModel(IUnitOfWork unitOfWork)
+        public IndexModel(IUnitOfWork unitOfWork) : base("Home")
         {
             _unitOfWork = unitOfWork;
         }
