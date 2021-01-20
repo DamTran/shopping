@@ -23,7 +23,6 @@
                             {
                                 <li>@details.Name x @details.Count</li>
                             }
-
                         </ul>
                     </div>
                     <div class="col-4 pb-2">
@@ -33,7 +32,7 @@
                             </div>
                             <input type="text" class="border rounded form-control" readonly value="@item.OrderHeader.PickUpTime" />
                         </div>
-                        @{ 
+                        @{
                             var comments = item.OrderHeader.Comments;
                             if(comments==null || comments.Trim().Length == 0)
                             {
@@ -61,7 +60,6 @@
                                 }
                             }
 
-
                             <button type="submit" class="btn btn-warning form-control mb-3" asp-page-handler="OrderCancel" asp-route-OrderId="@item.OrderHeader.Id">
                                 <i class="fas fa-times"></i> &nbsp; Cancel Order
                             </button>
@@ -77,5 +75,3 @@
     </div>
 }
 </form>
-
-

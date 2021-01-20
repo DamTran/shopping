@@ -1,11 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Taste.DataAccess.Data.Repository.IRepository;
 using Taste.Models;
 using Taste.Models.ViewModels;
@@ -35,7 +32,7 @@ namespace Taste.Pages.Customer.Cart
             OrderDetailsCartVM.OrderHeader.OrderTotal = 0;
 
             var claimsIdentity = (ClaimsIdentity)User.Identity;
-            var claim =claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
             if (claim != null)
             {
                 IEnumerable<ShoppingCart> cart = _unitOfWork.ShoppingCart.GetAll(c => c.ApplicationUserId == claim.Value);
@@ -77,13 +74,10 @@ namespace Taste.Pages.Customer.Cart
             {
                 _unitOfWork.ShoppingCart.DecrementCount(cart, 1);
                 _unitOfWork.Save();
-
             }
 
-           
             return RedirectToPage("/Customer/Cart/Index");
         }
-
 
         public IActionResult OnPostRemove(int cartId)
         {

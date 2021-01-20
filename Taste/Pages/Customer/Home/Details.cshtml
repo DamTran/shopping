@@ -4,7 +4,6 @@
     ViewData["Title"] = "Details";
 }
 
-
 <div class="">
     <form method="post">
         <input type="hidden" asp-for="ShoppingCartObj.MenuItemId" />
@@ -40,14 +39,11 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="col-12 col-lg-4 p-1 text-center">
                                 <img src="@Model.ShoppingCartObj.MenuItem.Image" width="100%" class="rounded" />
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -66,6 +62,6 @@
     </form>
 </div>
 
-@section Scripts{ 
+@section Scripts{
 <partial name="_ValidationScriptsPartial" />
 }

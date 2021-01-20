@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<Taste.Models.MenuItem>
 
-    <div class="row row-lg py-4">
-        @foreach (var product in Model)
-        {
-            @await Html.PartialAsync("_Product", product)
-        }
-    </div>
+<div class="row row-lg py-4">
+    @foreach (var product in Model)
+    {
+        @await Html.PartialAsync("_Product", product)
+    }
+</div>

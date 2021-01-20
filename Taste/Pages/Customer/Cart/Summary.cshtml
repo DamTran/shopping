@@ -105,7 +105,7 @@
                 <div class="card-footer">
                     <div class="row">
                         <div class="col-12 col-md-4 offset-md-8">
-                            @{ 
+                            @{
                                 var OrderTotalForStripe = Model.detailCart.OrderHeader.OrderTotal * 100;
                             }
                             <script src="https://checkout.stripe.com/checkout.js"
@@ -131,13 +131,12 @@
     }
 </form>
 
-@section Scripts{ 
+@section Scripts{
 <script>
     $(function () {
         $("#datepicker").datepicker({ minDate: 1, maxDate: "+1W" });
         $("#timepicker").timepicker({ 'minTime': '11:00 AM', 'maxTime': '9:00 PM', step: '30' });
     });
-
 
     function validateInput() {
         var time = document.getElementById("timepicker").value;
@@ -163,7 +162,5 @@
         }
         return true;
     }
-
 </script>
 }
-

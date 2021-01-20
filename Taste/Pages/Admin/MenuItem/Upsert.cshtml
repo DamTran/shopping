@@ -1,7 +1,6 @@
 ﻿@page
 @model Taste.Pages.Admin.MenuItem.UpsertModel
 
-
 <form method="post" asp-action="Upsert" enctype="multipart/form-data">
     <div class="container">
         <div class="row px-2 mx-2 backgroundWhite border">
@@ -87,7 +86,6 @@
                                 {
                                     <button type="submit" onclick="return ValidateInput()" class="btn btn-primary form-control">Create</button>
                                 }
-
                             </div>
                             <div class="col-6">
                                 <a asp-page="./Index" class="btn btn-success form-control">Back to List</a>
@@ -103,8 +101,6 @@
                     <img src="@Model.MenuItemObj.MenuItem.Image" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
                 </div>
             }
-
-
         </div>
     </div>
 </form>
@@ -126,5 +122,4 @@
         };
     </script>
 
-    
 }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Linq;
+using System.Security.Claims;
 using Taste.DataAccess.Data.Repository.IRepository;
 using Taste.Models;
 using Taste.Utility;
@@ -47,20 +43,19 @@ namespace Taste.Pages.Customer.Home
                 ShoppingCart cartFromDb = _unitOfWork.ShoppingCart.GetFirstOrDefault(c => c.ApplicationUserId == ShoppingCartObj.ApplicationUserId &&
                                             c.MenuItemId == ShoppingCartObj.MenuItemId);
 
-                if(cartFromDb == null)
+                if (cartFromDb == null)
                 {
                     _unitOfWork.ShoppingCart.Add(ShoppingCartObj);
                 }
                 else
                 {
-                   _unitOfWork.ShoppingCart.IncrementCount(cartFromDb, ShoppingCartObj.Count);
+                    _unitOfWork.ShoppingCart.IncrementCount(cartFromDb, ShoppingCartObj.Count);
                 }
                 _unitOfWork.Save();
 
                 var count = _unitOfWork.ShoppingCart.GetAll(c => c.ApplicationUserId == ShoppingCartObj.ApplicationUserId).ToList().Count;
                 HttpContext.Session.SetInt32(SD.ShoppingCart, count);
                 return RedirectToPage("Index");
-
             }
             else
             {

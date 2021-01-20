@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
+using System.IO;
 using Taste.DataAccess.Data.Repository.IRepository;
-using Taste.Models;
 using Taste.Models.ViewModels;
 using Taste.Utility;
 
@@ -46,9 +41,7 @@ namespace Taste.Pages.Admin.MenuItem
                 }
             }
             return Page();
-
         }
-
 
         public IActionResult OnPost()
         {
@@ -59,13 +52,13 @@ namespace Taste.Pages.Admin.MenuItem
             {
                 return Page();
             }
-            if(MenuItemObj.MenuItem.Id == 0)
+            if (MenuItemObj.MenuItem.Id == 0)
             {
                 string fileName = Guid.NewGuid().ToString();
                 var uploads = Path.Combine(webRootPath, @"images\menuItems");
                 var extension = Path.GetExtension(files[0].FileName);
 
-                using (var fileStream = new FileStream(Path.Combine(uploads,fileName+extension), FileMode.Create))
+                using (var fileStream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
                 {
                     files[0].CopyTo(fileStream);
                 }
@@ -90,7 +83,6 @@ namespace Taste.Pages.Admin.MenuItem
                         System.IO.File.Delete(imagePath);
                     }
 
-
                     using (var fileStream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
                     {
                         files[0].CopyTo(fileStream);
@@ -101,7 +93,6 @@ namespace Taste.Pages.Admin.MenuItem
                 {
                     MenuItemObj.MenuItem.Image = objFromDb.Image;
                 }
-
 
                 _unitOfWork.MenuItem.Update(MenuItemObj.MenuItem);
             }

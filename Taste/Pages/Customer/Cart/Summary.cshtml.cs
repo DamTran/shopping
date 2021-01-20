@@ -1,12 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Stripe;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Stripe;
 using Taste.DataAccess.Data.Repository.IRepository;
 using Taste.Models;
 using Taste.Models.ViewModels;
@@ -56,7 +54,6 @@ namespace Taste.Pages.Customer.Cart
             detailCart.OrderHeader.PickUpTime = DateTime.Now;
             detailCart.OrderHeader.PhoneNumber = applicationUser.PhoneNumber;
             return Page();
-
         }
 
         public IActionResult OnPost(string stripeToken)
@@ -70,13 +67,13 @@ namespace Taste.Pages.Customer.Cart
             detailCart.OrderHeader.OrderDate = DateTime.Now;
             detailCart.OrderHeader.UserId = claim.Value;
             detailCart.OrderHeader.Status = SD.PaymentStatusPending;
-            detailCart.OrderHeader.PickUpTime = Convert.ToDateTime(detailCart.OrderHeader.PickUpDate.ToShortDateString() + " " +detailCart.OrderHeader.PickUpTime.ToShortTimeString());
+            detailCart.OrderHeader.PickUpTime = Convert.ToDateTime(detailCart.OrderHeader.PickUpDate.ToShortDateString() + " " + detailCart.OrderHeader.PickUpTime.ToShortTimeString());
 
             List<OrderDetails> orderDetailsList = new List<OrderDetails>();
             _unitOfWork.OrderHeader.Add(detailCart.OrderHeader);
             _unitOfWork.Save();
 
-            foreach(var item in detailCart.listCart)
+            foreach (var item in detailCart.listCart)
             {
                 item.MenuItem = _unitOfWork.MenuItem.GetFirstOrDefault(m => m.Id == item.MenuItemId);
                 OrderDetails orderDetails = new OrderDetails
@@ -90,7 +87,6 @@ namespace Taste.Pages.Customer.Cart
                 };
                 detailCart.OrderHeader.OrderTotal += (orderDetails.Count * orderDetails.Price);
                 _unitOfWork.OrderDetails.Add(orderDetails);
-                
             }
             detailCart.OrderHeader.OrderTotal = Convert.ToDouble(String.Format("{0:.##}", detailCart.OrderHeader.OrderTotal));
             _unitOfWork.ShoppingCart.RemoveRange(detailCart.listCart);
@@ -99,7 +95,6 @@ namespace Taste.Pages.Customer.Cart
 
             if (stripeToken != null)
             {
-
                 var options = new ChargeCreateOptions
                 {
                     //Amount is in cents
@@ -115,7 +110,7 @@ namespace Taste.Pages.Customer.Cart
 
                 if (charge.Status.ToLower() == "succeeded")
                 {
-                    //email 
+                    //email
                     detailCart.OrderHeader.PaymentStatus = SD.PaymentStatusApproved;
                     detailCart.OrderHeader.Status = SD.StatusSubmitted;
                 }
@@ -131,10 +126,6 @@ namespace Taste.Pages.Customer.Cart
             _unitOfWork.Save();
 
             return RedirectToPage("/Customer/Cart/OrderConfirmation", new { id = detailCart.OrderHeader.Id });
-
         }
-
-        
-
     }
 }

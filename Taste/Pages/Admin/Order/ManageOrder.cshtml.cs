@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Stripe;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Stripe;
 using Taste.DataAccess.Data.Repository.IRepository;
 using Taste.Models;
 using Taste.Models.ViewModels;
@@ -24,7 +22,6 @@ namespace Taste.Pages.Admin.Order
         [BindProperty]
         public List<OrderDetailsViewModel> orderDetailsVM { get; set; }
 
-
         public void OnGet()
         {
             orderDetailsVM = new List<OrderDetailsViewModel>();
@@ -32,7 +29,6 @@ namespace Taste.Pages.Admin.Order
             List<OrderHeader> OrderHeaderList = _unitOfWork.OrderHeader
                 .GetAll(o => o.Status == SD.StatusSubmitted || o.Status == SD.StatusInProcess)
                 .OrderByDescending(u => u.PickUpTime).ToList();
-
 
             foreach (OrderHeader item in OrderHeaderList)
             {
@@ -75,9 +71,9 @@ namespace Taste.Pages.Admin.Order
             //refund amount
             var options = new RefundCreateOptions
             {
-                Amount = Convert.ToInt32(orderHeader.OrderTotal*100),
+                Amount = Convert.ToInt32(orderHeader.OrderTotal * 100),
                 Reason = RefundReasons.RequestedByCustomer,
-                ChargeId=orderHeader.TransactionId
+                ChargeId = orderHeader.TransactionId
             };
             var service = new RefundService();
             Refund refund = service.Create(options);
@@ -86,6 +82,5 @@ namespace Taste.Pages.Admin.Order
             _unitOfWork.Save();
             return RedirectToPage("ManageOrder");
         }
-
     }
 }

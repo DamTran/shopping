@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Taste.DataAccess.Data.Repository.IRepository;
 using Taste.Utility;
 
@@ -35,9 +30,7 @@ namespace Taste.Pages.Admin.Category
                 }
             }
             return Page();
-
         }
-
 
         public IActionResult OnPost()
         {
@@ -45,7 +38,7 @@ namespace Taste.Pages.Admin.Category
             {
                 return Page();
             }
-            if(CategoryObj.Id == 0)
+            if (CategoryObj.Id == 0)
             {
                 _unitOfWork.Category.Add(CategoryObj);
             }

@@ -1,7 +1,6 @@
 ﻿@page
 @model Taste.Pages.Admin.Category.UpsertModel
 
-
 <form method="post" asp-action="Upsert">
     <div class="container">
         <div class="row px-2 mx-2 backgroundWhite border">
@@ -38,9 +37,8 @@
                     <div class="col-9 offset-3">
                        <div class="row">
                            <div class="col-6">
-                              
+
                                <button type="submit" class="btn btn-primary form-control">@(Model.CategoryObj.Id != 0 ? "Update" : "Create")</button>
-                              
                            </div>
                            <div class="col-6">
                                <a asp-page="./Index" class="btn btn-success form-control">Back to List</a>
@@ -49,10 +47,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </form>
-
