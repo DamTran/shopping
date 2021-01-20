@@ -9,13 +9,7 @@ namespace Taste
             Body = bodyModel;
         }
 
-        public HeaderModel Header { get; set; }
-
-        public NavigationModel Navigation { get; set; }
-
-        public T Body { get; set; }
-
-        public FooterModel Footer { get; set; }
+        public new T Body { get; set; }
     }
 
     public class ApplicationPageModel : PageModel
@@ -28,10 +22,24 @@ namespace Taste
         public string Application => "Taste";
 
         public string Title { get; }
+
+        public HeaderModel Header => new HeaderModel();
+
+        public NavigationModel Navigation => new NavigationModel();
+
+        public object Body { get; set; }
+
+        public FooterModel Footer => new FooterModel
+		{
+			Application = Application,
+		};
     }
 
     public class HeaderModel
     {
+		public string Telephone => "+1 (844) 123 456 78";
+		
+		public string EmailAddress => "info@demolink.org";
     }
 
     public class NavigationModel
@@ -40,5 +48,6 @@ namespace Taste
 
     public class FooterModel
     {
+		public string Application { get; set; }
     }
 }
