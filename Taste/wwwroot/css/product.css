@@ -41,6 +41,25 @@
     justify-content: space-between;
 }
 
+/*popular product
+*/
+.hover-zoom {
+    overflow: hidden;
+}
+
+.hover-zoom img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.hover-zoom:hover img {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+
 /*right side*/
 
 .product {
