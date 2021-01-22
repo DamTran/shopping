@@ -35,4 +35,9 @@
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="FOR /F %25%25F IN ('DIR &quot;$(ProjectDir)Pages\*.css&quot; /S /B') DO COPY &quot;%25%25F&quot; &quot;$(ProjectDir)wwwroot\css\&quot; /Y&#xD;&#xA;FOR /F %25%25F IN ('DIR &quot;$(ProjectDir)Pages\*.js&quot; /S /B') DO COPY &quot;%25%25F&quot; &quot;$(ProjectDir)wwwroot\js\&quot; /Y" />
+  </Target>
+
 </Project>
