@@ -14,9 +14,6 @@
     <script src="~/js/product-details.js"></script>
 }
 
-
-<h1>Detail ne Thien</h1>
-
 <section class="mt-5">
     <div class="container">
         <div class="row row-30">
@@ -109,25 +106,24 @@
                 </ul>
             </div>
             <!-- Tab panes-->
-            <div class="tab-content tab-content-1">
+            <div class="tab-content mt-4">
                 <div class="tab-pane fade active show" id="tabs-1-1">
-                    <div class="box-comment">
-                        <div class="unit flex-column flex-sm-row unit-spacing-md">
-                            <div class="unit-left"><a class="box-comment-figure" href="#"><img src="images/user-1-119x119.jpg" alt="" width="119" height="119"></a></div>
-                            <div class="unit-body">
-                                <div class="group-sm group-justify">
-                                    <div>
-                                        <div class="group-xs group-middle">
-                                            <h5 class="box-comment-author"><a href="#">Jane Doe</a></h5>
-                                            <div class="box-rating"><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star-half"></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="box-comment-time">
-                                        <time datetime="2020-11-30">Nov 30, 2020</time>
+                    @*box comment*@
+                    <div class="d-flex align-items-center my-4">
+                        <div class=""><a class="" href="#"><img src="~/images/user-1-119x119.jpg" alt="" width="119" height="119"></a></div>
+                        <div class="ml-4">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <div class="group-xs group-middle">
+                                        <h5 class="box-comment-author"><a href="#">Jane Doe</a></h5>
+                                        <div class="box-rating"><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star-half"></span></div>
                                     </div>
                                 </div>
-                                <p class="box-comment-text">Lorem ipsum dolor sit amet, has mutat labores nostrum ei. Duo te blandit erroribus, ut sea ipsum nonumy, mel no ignota accusamus gloriatur. Id has habeo regione, explicari hendrerit reprimique cum te.</p>
+                                <div class="box-comment-time">
+                                    <time datetime="2020-11-30">Nov 30, 2020</time>
+                                </div>
                             </div>
+                            <p class="box-comment-text">Lorem ipsum dolor sit amet, has mutat labores nostrum ei. Duo te blandit erroribus, ut sea ipsum nonumy, mel no ignota accusamus gloriatur. Id has habeo regione, explicari hendrerit reprimique cum te.</p>
                         </div>
                     </div>
                     <h4 class="text-transform-none font-weight-medium">Leave a Review</h4>
