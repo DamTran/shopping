@@ -266,3 +266,10 @@ ul, ol {
     border: 1px solid #e1e1e1;
     border-radius: 3px;
 }
+
+html .group-middle {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
