@@ -1,0 +1,27 @@
+﻿.arousel-indicators-custom {
+    position: unset;
+    margin-left: -6px;
+    margin-right: -6px;
+}
+
+    .arousel-indicators-custom .item {
+        width: 170px;
+        cursor: pointer;
+        margin: 10px;
+        overflow: hidden;
+    }
+
+        .arousel-indicators-custom .item img {
+            box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.21);
+            background-color: transparent;
+            /*effect*/
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+
+        .arousel-indicators-custom .item:hover img {
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }

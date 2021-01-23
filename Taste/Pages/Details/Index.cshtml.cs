@@ -5,13 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Taste.Pages.Products
+namespace Taste.Pages.Details
 {
-    public class DetailsModel : PageModel
+    public class IndexModel : ApplicationPageModel
     {
+        public IndexModel() : base("Product details")
+        {
+        }
+
         public void OnGet()
         {
-
         }
     }
 }
