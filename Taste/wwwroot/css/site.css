@@ -236,15 +236,6 @@ html .group-justify {
     justify-content: space-between;
 }
 
-html .group-xs {
-    margin-bottom: -15px;
-    margin-left: -15px;
-}
-
-* + .group-xs {
-    margin-top: 30px;
-}
-
 .aside-title {
     padding-bottom: 14px;
     text-transform: uppercase;

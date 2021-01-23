@@ -25,3 +25,7 @@
             -webkit-transform: scale(1.2);
             transform: scale(1.2);
         }
+
+.list-description li {
+    margin-top: 8px;
+}
