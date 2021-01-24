@@ -6,6 +6,7 @@
 
 @section head
 {
+    <link rel="stylesheet" href="~/css/product.css" />
     <link rel="stylesheet" href="~/css/product-details.css" />
 }
 
@@ -186,4 +187,33 @@
         </div>
     </div>
 </section>
-
+@*Related product*@
+<section>
+    <div class="container">
+        <h4 class="text-center text-uppercase mt-2 font-weight-bold">Featured Products</h4>
+        <div class="row row-lg py-4">
+            @for (int i = 0; i < 4; i++)
+            {
+                <div class="col-sm-6 col-md-3 pl-sm-2 pt-sm-4">
+                    <!-- Product-->
+                    <article class="product card">
+                        <div class="product-body">
+                            <div class="product-figure">
+                                <img src="~/images/product-1-95x175.png" alt="" width="95" height="175" />
+                            </div>
+                            <h5 class="product-title"><a href="#">Product Name</a></h5>
+                            <div class="product-price-wrap">
+                                <div class="product-price product-price-old">$30.00</div>
+                                <div class="product-price">$23.00</div>
+                            </div>
+                        </div><span class="product-badge product-badge-sale">Sale</span>
+                        <div class="product-button-wrap">
+                            <div class="product-button"><a class="btn btn-outline-info" href="/products/details">Details</a></div>
+                            <div class="product-button"><a class="btn btn-outline-danger" href="#">Add To Card</a></div>
+                        </div>
+                    </article>
+                </div>
+            }
+        </div>
+    </div>
+</section>
