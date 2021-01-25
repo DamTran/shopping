@@ -1,10 +1,10 @@
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Diagnostics;
-using Taste.Enums;
 using System;
-using System.Text.Json;
-using Microsoft.AspNetCore.Diagnostics;
+using System.Diagnostics;
+using System.Net;
+using Taste.Enums;
 
 namespace Taste.Pages.Error
 {
@@ -13,14 +13,14 @@ namespace Taste.Pages.Error
     {
         public override string Title => "Error";
 
-        public int StatusCode { get; set; }
+        public HttpStatusCode HttpStatusCode { get; set; }
 
         public ErrorCodeEnum ErrorCode { get; set; }
 
         public string Path { get; set; }
 
         public Exception Exception { get; set; }
-        
+
         public string RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
@@ -32,11 +32,9 @@ namespace Taste.Pages.Error
             _logger = logger;
         }
 
-        public void OnGet(int statusCode)
+        public void OnGet(HttpStatusCode statusCode)
         {
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-
-            StatusCode = statusCode;
 
             // https://andrewlock.net/creating-a-custom-error-handler-middleware-function/
             // Try and retrieve the error from the ExceptionHandler middleware
@@ -54,7 +52,7 @@ namespace Taste.Pages.Error
             if (exception != null)
             {
                 HttpContext.Response.ContentType = "application/problem+json";
-                
+
                 // Get the details to display, depending on whether we want to expose the raw exception
                 var title = "An error occured: " + exception.Message;
                 var details = exception.ToString();
@@ -65,7 +63,7 @@ namespace Taste.Pages.Error
                     Title = title,
                     Detail = details,
                 };
-                
+
                 // This is often very handy information for tracing the specific request
                 var traceId = Activity.Current?.Id ?? HttpContext?.TraceIdentifier;
                 if (traceId != null)
