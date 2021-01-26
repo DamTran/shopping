@@ -1,0 +1,28 @@
+﻿@page "/error/500"
+@model Taste.Pages.Error.InternalServerErrorIndexModel
+
+<h1 class="text-danger">Internal Server Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+@if (Model.HasRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+@if (Model.HasPath)
+{
+    <p>
+        <strong>Path:</strong> <code>@Model.Path</code>
+    </p>
+}
+
+@if (Model.HasException)
+{
+    <h3><strong>Exception<strong></h3>
+    <p>@Model.Exception.Message</p>
+    <p>
+        <code>@Model.Exception.StackTrace</code>
+    </p>
+}

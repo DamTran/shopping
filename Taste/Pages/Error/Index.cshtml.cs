@@ -9,7 +9,7 @@ using Taste.Utility.Helpers;
 
 namespace Taste.Pages.Error
 {
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public class IndexModel : ApplicationPageModel
     {
         public override string Title => ResponseHttpStatusCode == null ? "Error" : StringHelpers.SplitCamelCase(ResponseHttpStatusCode.ToString());
