@@ -5,15 +5,16 @@ using System;
 using System.Diagnostics;
 using System.Net;
 using Taste.Enums;
+using Taste.Utility.Helpers;
 
 namespace Taste.Pages.Error
 {
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public class IndexModel : ApplicationPageModel
     {
-        public override string Title => "Error";
+        public override string Title => ResponseHttpStatusCode == null ? "Error" : StringHelpers.SplitCamelCase(ResponseHttpStatusCode.ToString());
 
-        public HttpStatusCode HttpStatusCode { get; set; }
+        public virtual HttpStatusCode? ResponseHttpStatusCode { get; }
 
         public ErrorCodeEnum ErrorCode { get; set; }
 
@@ -32,7 +33,7 @@ namespace Taste.Pages.Error
             _logger = logger;
         }
 
-        public void OnGet(HttpStatusCode statusCode)
+        public virtual void OnGet()
         {
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
 

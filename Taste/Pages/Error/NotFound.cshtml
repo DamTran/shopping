@@ -1,0 +1,52 @@
+﻿@page "/error/404"
+@model Taste.Pages.Error.NotFoundIndexModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>@Model.Title - @Model.Application</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url(https://livedemo00.template-help.com/wt_prod-10492/theme/images/bg-404.jpg);
+        }
+
+        header {
+            padding: calc(1em + 3vh) 0 calc(1em + 2vh);
+            padding-top: calc(1em + 9vh);
+        }
+
+        .logo {
+            font-family: 'Kaushan Script', cursive;
+            font-size: 40px;
+            text-align: center;
+        }
+
+            .logo a {
+                color: #ffffff;
+            }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="logo">
+            <a asp-area="" asp-page="/Index">TASTE</a>
+        </h1>
+    </header>
+    <main role="main">
+        <div class="status-code">404</div>
+        <h3>Page Not Found</h3>
+    </main>
+</body>
+</html>
