@@ -61,21 +61,6 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" asp-area="" asp-page="/Products/Index">Products</a>
                 </li>
-                @if (User.IsInRole(SD.ManagerRole))
-                {
-                    <li class="nav-item dropdown">
-                        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropDown" data-toggle="dropdown">
-                            Admin
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" asp-page="/Admin/Category/Index">Category</a>
-                            <a class="dropdown-item" asp-page="/Admin/FoodType/Index">Food Type</a>
-                            <a class="dropdown-item" asp-page="/Admin/MenuItem/Index">Menu Item</a>
-                            <a class="dropdown-item" asp-page="/Admin/User/Index">Users</a>
-                        </div>
-                    </li>
-                }
-
                 @if (User.IsInRole(SD.ManagerRole) || User.IsInRole(SD.KitchenRole))
                 {
                     <li class="nav-item">
@@ -100,6 +85,21 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" asp-area="" asp-page="/ContactUs/Index">Contact Us</a>
                 </li>
+                @if (User.IsInRole(SD.ManagerRole))
+                {
+                    // TODO: Move the administration section somewhere else
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropDown" data-toggle="dropdown">
+                            Admin
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" asp-page="/Admin/Category/Index">Category</a>
+                            <a class="dropdown-item" asp-page="/Admin/FoodType/Index">Food Type</a>
+                            <a class="dropdown-item" asp-page="/Admin/MenuItem/Index">Menu Item</a>
+                            <a class="dropdown-item" asp-page="/Admin/User/Index">Users</a>
+                        </div>
+                    </li>
+                }
             </ul>
             <!--<partial name="_LoginPartial" />-->
         </div>
