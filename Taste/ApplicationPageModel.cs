@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-
-namespace Taste
+﻿namespace Taste
 {
+    using Microsoft.AspNetCore.Mvc.RazorPages;
+
     public class ApplicationPageModel<T> : ApplicationPageModel
     {
         public ApplicationPageModel(T bodyModel, string title) : base(title)
@@ -30,16 +30,16 @@ namespace Taste
         public object Body { get; set; }
 
         public FooterModel Footer => new FooterModel
-		    {
-			      Application = Application,
-		    };
+        {
+            Application = Application,
+        };
     }
 
     public class HeaderModel
     {
-		    public string Telephone => "+1 (844) 123 456 78";
-		
-		    public string EmailAddress => "info@demolink.org";
+        public string Telephone => "+1 (844) 123 456 78";
+
+        public string EmailAddress => "info@demolink.org";
     }
 
     public class NavigationModel
@@ -48,6 +48,6 @@ namespace Taste
 
     public class FooterModel
     {
-		    public string Application { get; set; }
+        public string Application { get; set; }
     }
 }
