@@ -1,11 +1,10 @@
 ﻿@model ApplicationPageModel
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="h-100">
 <head>
     <meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <title>@Model.Title - @Model.Application</title>
 
@@ -19,11 +18,10 @@
     <link rel="stylesheet" href="~/css/site.css" />
     @RenderSection("head", required: false)
 </head>
-
-<body class="search-background">
+<body class="search-background d-flex flex-column h-100">
     <partial name="_HeaderPartial" model="Model.Header" />
 
-    <div class="container-fluid">
+    <div class="container-fluid flex-shrink-0 h-100">
         <main role="main">
             @RenderBody()
         </main>
