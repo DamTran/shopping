@@ -9,7 +9,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0-preview7.19365.7" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0-preview7.19362.6" />
+    <PackageReference Include="MySql.Data" Version="8.0.23" />
     <PackageReference Include="Stripe.net" Version="27.24.0" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.113.7" />
   </ItemGroup>
 
   <ItemGroup>
