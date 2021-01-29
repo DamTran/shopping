@@ -264,3 +264,7 @@ html .group-middle {
     align-items: center;
     justify-content: center;
 }
+
+.font-size-title{
+    font-size: 36px;
+}
