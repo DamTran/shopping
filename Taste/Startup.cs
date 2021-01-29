@@ -26,6 +26,9 @@ namespace Taste
     using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
     using Microsoft.AspNetCore.Routing;
     using Microsoft.AspNetCore.Builder;
+    using System.Data.SQLite;
+    using System.Data;
+    using Taste.DataAccess.DbConnectionProvider;
 
     public class Startup
     {
@@ -39,7 +42,6 @@ namespace Taste
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 if (true)
@@ -51,6 +53,10 @@ namespace Taste
                     options.UseSqlServer(Configuration.GetConnectionString("SQLServer"));
                 }
             });
+            string localConnectionString = Configuration.GetConnectionString("SQLite");
+            string remoteConnectionString = Configuration.GetConnectionString("MySQL");
+            services.AddSingleton<IDbConnectionProvider, DbConnectionProvider>(factory => new DbConnectionProvider(localConnectionString, remoteConnectionString));
+
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI(UIFramework.Bootstrap4)
