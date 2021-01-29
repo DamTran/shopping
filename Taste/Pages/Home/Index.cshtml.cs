@@ -10,16 +10,20 @@
     using Taste.DataAccess.Data.Repository.IRepository;
     using Taste.Models;
     using Taste.Utility;
+    using Taste.DataAccess.DbConnectionProvider;
+    using System.Data;
 
     public class IndexModel : ApplicationPageModel
     {
         private readonly IConfiguration _configuration;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IDbConnectionProvider _dbConnectionProvider;
 
-        public IndexModel(IConfiguration configuration, IUnitOfWork unitOfWork) : base("Home")
+        public IndexModel(IConfiguration configuration, IUnitOfWork unitOfWork, IDbConnectionProvider dbConnectionProvider) : base("Home")
         {
             _configuration = configuration;
             _unitOfWork = unitOfWork;
+            _dbConnectionProvider = dbConnectionProvider;
         }
 
         public IEnumerable<MenuItem> MenuItemList { get; set; }
@@ -36,17 +40,22 @@
                 HttpContext.Session.SetInt32(SD.ShoppingCart, shoppingCartCount);
             }
 
-            string getMenuQuery = System.IO.File.ReadAllText("Pages/Home/ListMenuItems.sql");
-            string getCategoryQuery = System.IO.File.ReadAllText("Pages/Home/ListCategories.sql");
-            string connectionString = _configuration.GetConnectionString("DefaultConnection");
-            using (var connection = new MySqlConnection(connectionString))
+            // string connectionString = _configuration.GetConnectionString("DefaultConnection");
+            // using (var connection = new MySqlConnection(connectionString))
+            // {
+            //     MenuItemList = connection.Query<MenuItem>(getMenuQuery);
+            //     CategoryList = connection.Query<Category>(getCategoryQuery);
+            // }
+            using (var connection = _dbConnectionProvider.GetRemoteDbConnection())
             {
-                MenuItemList = connection.Query<MenuItem>(getMenuQuery);
-                CategoryList = connection.Query<Category>(getCategoryQuery);
-            }
+                connection.Open();
 
-            //MenuItemList = _unitOfWork.MenuItem.GetAll(null, null, "Category,FoodType");
-            //CategoryList = _unitOfWork.Category.GetAll(null, q => q.OrderBy(c => c.DisplayOrder), null);
+                string listMenuItemQuery = _dbConnectionProvider.Queries["ListMenuItem"];
+                MenuItemList = connection.Query<MenuItem>(listMenuItemQuery);
+
+                string listCategoryQuery = _dbConnectionProvider.Queries["ListCategory"];
+                CategoryList = connection.Query<Category>(listCategoryQuery);
+            }
         }
     }
 }
