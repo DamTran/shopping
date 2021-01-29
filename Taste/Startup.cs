@@ -44,11 +44,11 @@ namespace Taste
             {
                 if (true)
                 {
-                    options.UseMySQL(Configuration.GetConnectionString("DefaultConnection"));
+                    options.UseMySQL(Configuration.GetConnectionString("MySQL"));
                 }
                 else
                 {
-                    options.UseSqlServer(Configuration.GetConnectionString("SqlServerConnection"));
+                    options.UseSqlServer(Configuration.GetConnectionString("SQLServer"));
                 }
             });
             services.AddIdentity<IdentityUser, IdentityRole>()
