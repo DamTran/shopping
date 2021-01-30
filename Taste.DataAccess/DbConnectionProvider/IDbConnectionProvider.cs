@@ -6,7 +6,7 @@ namespace Taste.DataAccess.DbConnectionProvider
 
     public interface IDbConnectionProvider
     {
-        IDictionary<string, string> Queries { get; }
+        IDictionary<EnumSqlQuery, string> Queries { get; }
         SQLiteConnection GetLocalDbConnection();
         void RefreshQueries();
         IDbConnection GetRemoteDbConnection();

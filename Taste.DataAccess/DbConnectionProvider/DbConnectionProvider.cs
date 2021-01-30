@@ -19,8 +19,8 @@ namespace Taste.DataAccess.DbConnectionProvider
             _remoteConnectionString = remoteConnectionString;
         }
 
-        private IDictionary<string, string> _queries;
-        public IDictionary<string, string> Queries
+        private IDictionary<EnumSqlQuery, string> _queries;
+        public IDictionary<EnumSqlQuery, string> Queries
         {
             get
             {
@@ -43,7 +43,7 @@ namespace Taste.DataAccess.DbConnectionProvider
             {
                 connection.Open();
                 var sqlQueries = connection.Query<SqlQuery>(LocalBaseQuery);
-                _queries = sqlQueries.ToDictionary(q => q.Title, q => q.Content);
+                _queries = sqlQueries.ToDictionary(q => q.SqlQueryId, q => q.Content);
             }
         }
 
