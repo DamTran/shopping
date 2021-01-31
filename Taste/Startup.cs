@@ -87,7 +87,10 @@ namespace Taste
             });
 
             services.AddRazorPages();
-            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddControllersWithViews(options =>
+            {
+                options.AllowEmptyInputInBodyModelBinding = true;
+            }).AddRazorRuntimeCompilation();
             services.AddAuthentication().AddFacebook(facebookOptions =>
             {
                 //facebookOptions.AppId = "2481959558526884";
