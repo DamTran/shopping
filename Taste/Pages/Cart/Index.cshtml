@@ -1,2 +1,48 @@
 ﻿@page "/cart"
 @model Taste.Pages.Cart.IndexModel
+
+
+@section head
+{
+    <link rel="stylesheet" href="~/css/cart.css" />
+}
+
+@section body
+{
+    @*<script src="~/js/product-details.js"></script>*@
+}
+
+<div class="container mt-5 text-center my-3">
+    <div class="row font-weight-bold py-2">
+        <div class="col">
+            Thing one
+        </div>
+        <div class="col">
+            Thing two
+        </div>
+        <div class="col">
+            Thing three
+        </div>
+        <div class="col">
+            Thing three
+        </div>
+    </div>
+    @for (int i = 0; i < 3; i++)
+    {
+        <div class="row py-2">
+            <div class="col">
+                One
+            </div>
+            <div class="col">
+                Two
+            </div>
+            <div class="col">
+                Three
+            </div>
+            <div class="col">
+                Three
+            </div>
+        </div>
+    }
+</div>
+
