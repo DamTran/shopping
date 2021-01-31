@@ -13,8 +13,8 @@ using Taste.Utility;
 
 namespace Taste.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    //[Route("api/[controller]")]
+    //[ApiController]
     public class OrderController : Controller
     {
 

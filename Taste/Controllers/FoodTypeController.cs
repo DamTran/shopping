@@ -8,8 +8,8 @@ using Taste.DataAccess.Data.Repository.IRepository;
 
 namespace Taste.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    //[Route("api/[controller]")]
+    //[ApiController]
     public class FoodTypeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
