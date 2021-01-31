@@ -268,3 +268,13 @@ html .group-middle {
 .font-size-title{
     font-size: 36px;
 }
+
+.list-categories li + li {
+    margin-top: 12px;
+}
+
+.list-categories li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
