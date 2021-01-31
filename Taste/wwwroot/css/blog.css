@@ -82,3 +82,11 @@
         transform: scale(1.2);
     }
 
+.link-tag {
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    margin-right: 20px;
+}
