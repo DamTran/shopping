@@ -42,3 +42,22 @@
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
 }
+
+.post-feature {
+    overflow: hidden;
+}
+
+.post-classic-figure img {
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.21);
+    background-color: transparent;
+    /*effect*/
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.post-classic-figure:hover img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
