@@ -9,40 +9,57 @@
 
 @section body
 {
-    @*<script src="~/js/product-details.js"></script>*@
+    <script src="~/js/product-details.js"></script>
 }
 
 <div class="container mt-5 text-center my-3">
-    <div class="row font-weight-bold py-2">
-        <div class="col">
-            Thing one
+    <div class="shop-cart">
+        <div class="row font-weight-bold py-2 shop-cart-header py-3">
+            <div class="col-6">
+                PRODUCT NAME
+            </div>
+            <div class="col-2">
+                PRICE
+            </div>
+            <div class="col-2">
+                QUANTITY
+            </div>
+            <div class="col-2">
+                TOTAL
+            </div>
         </div>
-        <div class="col">
-            Thing two
-        </div>
-        <div class="col">
-            Thing three
-        </div>
-        <div class="col">
-            Thing three
-        </div>
+        @for (int i = 0; i < 3; i++)
+        {
+            <div class="row py-2 align-items-center">
+                <div class="col-6 text-left">
+                    <a class="table-cart-figure" href="single-product.html">
+                        <img src="~/images/product-mini-4-146x132.png" alt="" width="146" height="132">
+                    </a>
+                    <a class="table-cart-link" href="single-product.html">Oranges</a>
+                </div>
+                <div class="col-2">
+                    $20.00
+                </div>
+                <div class="col-2">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default btn-number bg-danger" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                <i class="" data-fa-i2svg=""><svg class="svg-inline--fa fa-minus fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></i>
+                            </button>
+                        </span>
+                        <input type="text" name="quant[1]" class="text-center form-control input-number" value="1" min="1" max="10">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default btn-number bg-primary" data-type="plus" data-field="quant[1]">
+                                <i class="" data-fa-i2svg=""><svg class="svg-inline--fa fa-plus fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-2">
+                    $20
+                </div>
+            </div>
+        }
     </div>
-    @for (int i = 0; i < 3; i++)
-    {
-        <div class="row py-2">
-            <div class="col">
-                One
-            </div>
-            <div class="col">
-                Two
-            </div>
-            <div class="col">
-                Three
-            </div>
-            <div class="col">
-                Three
-            </div>
-        </div>
-    }
 </div>
 

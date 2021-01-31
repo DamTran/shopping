@@ -1,1 +1,15 @@
-﻿
+﻿.shop-cart {
+    font-size: 18px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border: 1px solid #000000;
+}
+
+.shop-cart-header {
+    text-transform: uppercase;
+    font-size: 18px;
+    padding-top: 21px;
+    padding-bottom: 21px;
+    border-bottom: 1px solid #000000;
+}
+
