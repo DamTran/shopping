@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace Taste.Models
 {
@@ -22,7 +20,7 @@ namespace Taste.Models
 
         [Required]
         [DisplayFormat(DataFormatString = "{0:C}")]
-        [Display(Name ="Order Total")]
+        [Display(Name = "Order Total")]
         public double OrderTotal { get; set; }
 
         [Required]
@@ -40,9 +38,10 @@ namespace Taste.Models
 
         [Display(Name = "Pickup Name")]
         public string PickupName { get; set; }
+
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
-        public string TransactionId { get; set; }
 
+        public string TransactionId { get; set; }
     }
 }
