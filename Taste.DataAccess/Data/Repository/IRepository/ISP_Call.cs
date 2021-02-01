@@ -1,11 +1,8 @@
-﻿using Dapper;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 namespace Taste.DataAccess.Data.Repository.IRepository
 {
-    public interface ISP_Call: IDisposable
+    public interface ISP_Call : IDisposable
     {
         //IEnumerable<T> ReturnList<T>(string procedureName, DynamicParameters param = null);
 

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Taste.DataAccess.Data.Repository.IRepository;
+﻿using Taste.DataAccess.Data.Repository.IRepository;
 
 namespace Taste.DataAccess.Data.Repository
 {
@@ -31,6 +28,7 @@ namespace Taste.DataAccess.Data.Repository
         public IOrderHeaderRepository OrderHeader { get; private set; }
 
         public ISP_Call SP_Call { get; private set; }
+
         public void Dispose()
         {
             _db.Dispose();

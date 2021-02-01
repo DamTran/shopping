@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Dapper;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Taste.DataAccess.Data.Repository.IRepository;
 
 namespace Taste.DataAccess.Data.Repository
 {
-    class SP_Call : ISP_Call
+    internal class SP_Call : ISP_Call
     {
         private readonly ApplicationDbContext _db;
         private static string ConnectionString = "";

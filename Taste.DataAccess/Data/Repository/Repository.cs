@@ -3,13 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using Taste.DataAccess.Data.Repository.IRepository;
 
 namespace Taste.DataAccess.Data.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
-    {	    
+    {
         protected readonly DbContext Context;
         internal DbSet<T> dbSet;
 

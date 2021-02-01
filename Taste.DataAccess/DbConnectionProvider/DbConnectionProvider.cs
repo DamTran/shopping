@@ -1,17 +1,17 @@
 namespace Taste.DataAccess.DbConnectionProvider
 {
-    using System.Data.SQLite;
-    using System.Collections.Generic;
-    using System.Linq;
     using Dapper;
     using MySql.Data.MySqlClient;
+    using System.Collections.Generic;
     using System.Data;
+    using System.Data.SQLite;
+    using System.Linq;
 
     public class DbConnectionProvider : IDbConnectionProvider
     {
         private const string LocalBaseQuery = "SELECT * FROM SqlQuery";
-        private string _localConnectionString;
-        private string _remoteConnectionString;
+        private readonly string _localConnectionString;
+        private readonly string _remoteConnectionString;
 
         public DbConnectionProvider(string localConnectionString, string remoteConnectionString)
         {
@@ -19,8 +19,9 @@ namespace Taste.DataAccess.DbConnectionProvider
             _remoteConnectionString = remoteConnectionString;
         }
 
-        private IDictionary<EnumSqlQuery, string> _queries;
-        public IDictionary<EnumSqlQuery, string> Queries
+        private IDictionary<string, string> _queries;
+
+        public IDictionary<string, string> Queries
         {
             get
             {
@@ -43,7 +44,7 @@ namespace Taste.DataAccess.DbConnectionProvider
             {
                 connection.Open();
                 var sqlQueries = connection.Query<SqlQuery>(LocalBaseQuery);
-                _queries = sqlQueries.ToDictionary(q => q.SqlQueryId, q => q.Content);
+                _queries = sqlQueries.ToDictionary(q => q.Title, q => q.Content);
             }
         }
 
