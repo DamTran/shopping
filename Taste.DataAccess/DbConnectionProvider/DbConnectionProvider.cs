@@ -9,7 +9,7 @@ namespace Taste.DataAccess.DbConnectionProvider
 
     public class DbConnectionProvider : IDbConnectionProvider
     {
-        private const string LocalBaseQuery = "SELECT * FROM SqlQuery";
+        private const string GetAllLogicQuery = "SELECT * FROM SqlQuery";
         private readonly string _localConnectionString;
         private readonly string _remoteConnectionString;
 
@@ -43,7 +43,7 @@ namespace Taste.DataAccess.DbConnectionProvider
             using (var connection = GetLocalDbConnection())
             {
                 connection.Open();
-                var sqlQueries = connection.Query<SqlQuery>(LocalBaseQuery);
+                var sqlQueries = connection.Query<SqlQuery>(GetAllLogicQuery);
                 _queries = sqlQueries.ToDictionary(q => q.Title, q => q.Content);
             }
         }

@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Taste.DataAccess.Data.Repository.IRepository;
-using Taste.Models;
-using Taste.Utility;
-using Taste.DataAccess.DbConnectionProvider;
-using Taste.DataAccess;
-using Dapper;
-
-namespace Taste.Controllers
+﻿namespace Taste.Controllers
 {
+    using Dapper;
+    using Microsoft.AspNetCore.Mvc;
+    using System;
+    using Taste.DataAccess.DbConnectionProvider;
+
     [Route("api")]
-    [ApiController]    
+    [ApiController]
     public class QueryController : Controller
     {
         private readonly IDbConnectionProvider _dbConnectionProvider;
@@ -28,17 +19,16 @@ namespace Taste.Controllers
         [HttpPost("{queryName}")]
         public IActionResult Get(string queryName, [FromBody] object data)
         {
-            EnumSqlQuery sqlQuery;
-            if (!Enum.TryParse(queryName, true, out sqlQuery))
+            if (!_dbConnectionProvider.Queries.ContainsKey(queryName))
             {
                 var exception = new Exception("Invalid API call.");
                 return BadRequest(exception);
             }
 
-            string query = _dbConnectionProvider.Queries[sqlQuery];
+            string query = _dbConnectionProvider.Queries[queryName];
             using (var connection = _dbConnectionProvider.GetRemoteDbConnection())
             {
-                var result = connection.Query(query);
+                var result = connection.Query(query, data);
                 return Json(result);
             }
         }
