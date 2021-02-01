@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Taste.Utility
+﻿namespace Taste.Utility
 {
     public class StripeSettings
     {
