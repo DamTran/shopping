@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using Taste.DataAccess.Data.Repository.IRepository;
 
 namespace Taste.Controllers
@@ -25,16 +21,15 @@ namespace Taste.Controllers
             return Json(new { data = _unitOfWork.ApplicationUser.GetAll() });
         }
 
-
         [HttpPost]
-        public IActionResult LockUnlock([FromBody]string id)
+        public IActionResult LockUnlock([FromBody] string id)
         {
             var objFromDb = _unitOfWork.ApplicationUser.GetFirstOrDefault(u => u.Id == id);
             if (objFromDb == null)
             {
                 return Json(new { success = false, message = "Error while Locking/Unlocking" });
             }
-            if(objFromDb.LockoutEnd!=null && objFromDb.LockoutEnd > DateTime.Now)
+            if (objFromDb.LockoutEnd != null && objFromDb.LockoutEnd > DateTime.Now)
             {
                 objFromDb.LockoutEnd = DateTime.Now;
             }
@@ -44,9 +39,7 @@ namespace Taste.Controllers
             }
             _unitOfWork.Save();
 
-            
             return Json(new { success = true, message = "Operation Successful." });
         }
-
     }
 }

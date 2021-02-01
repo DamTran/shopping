@@ -1,11 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Taste.DataAccess.Data.Repository.IRepository;
 using Taste.Models;
 using Taste.Models.ViewModels;
@@ -17,7 +14,6 @@ namespace Taste.Controllers
     //[ApiController]
     public class OrderController : Controller
     {
-
         private readonly IUnitOfWork _unitOfWork;
 
         public OrderController(IUnitOfWork unitOfWork)
@@ -61,7 +57,7 @@ namespace Taste.Controllers
                 }
             }
 
-            foreach(OrderHeader item in OrderHeaderList)
+            foreach (OrderHeader item in OrderHeaderList)
             {
                 OrderDetailsViewModel individual = new OrderDetailsViewModel
                 {
@@ -73,6 +69,5 @@ namespace Taste.Controllers
 
             return Json(new { data = orderListVM });
         }
-
     }
 }

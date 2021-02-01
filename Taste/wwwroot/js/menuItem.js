@@ -27,15 +27,14 @@ function loadList() {
                                     <i class="far fa-trash-alt"></i> Delete
                                 </a>
                     </div>`;
-                }, "width": "30%" 
+                }, "width": "30%"
             }
         ],
         "language": {
             "emptyTable": "no data found."
         },
         "width": "100%",
-        "order": [[2,"asc"]]
-        
+        "order": [[2, "asc"]]
     });
 }
 

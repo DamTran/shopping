@@ -34,7 +34,7 @@ function loadList(param) {
                                 <a href="/Admin/Order/OrderDetails?id=${data}" class="btn btn-success text-white" style="cussor:pointer; width:100px;">
                                     <i class="far fa-edit"></i> Details
                                 </a>
-                               
+
                     </div>`;
                 }, "width": "20%"
             }

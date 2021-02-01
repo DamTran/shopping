@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.IO;
 using Taste.DataAccess.Data.Repository.IRepository;
 
 namespace Taste.Controllers
@@ -26,7 +22,7 @@ namespace Taste.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Json(new { data = _unitOfWork.MenuItem.GetAll(null,null,"Category,FoodType") });
+            return Json(new { data = _unitOfWork.MenuItem.GetAll(null, null, "Category,FoodType") });
         }
 
         [HttpDelete("{id}")]
@@ -49,7 +45,7 @@ namespace Taste.Controllers
                 _unitOfWork.MenuItem.Remove(objFromDb);
                 _unitOfWork.Save();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return Json(new { success = false, message = "Error while deleting." });
             }

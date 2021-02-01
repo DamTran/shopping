@@ -1,34 +1,22 @@
 namespace Taste
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.UI;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.HttpsPolicy;
+    using Microsoft.AspNetCore.Identity.UI.Services;
+    using Microsoft.AspNetCore.Routing;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Hosting;
-    using Taste.DataAccess;
-    using Taste.DataAccess.Data.Repository.IRepository;
-    using Taste.DataAccess.Data.Repository;
-    using Taste.Utility;
     using Stripe;
+    using System;
+    using Taste.DataAccess;
     using Taste.DataAccess.Data.Initializer;
-    using Microsoft.AspNetCore.Identity.UI.Services;
-    using Microsoft.AspNetCore.DataProtection;
-    using System.IO;
-    using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
-    using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
-    using Microsoft.AspNetCore.Routing;
-    using Microsoft.AspNetCore.Builder;
-    using System.Data.SQLite;
-    using System.Data;
+    using Taste.DataAccess.Data.Repository;
+    using Taste.DataAccess.Data.Repository.IRepository;
     using Taste.DataAccess.DbConnectionProvider;
+    using Taste.Utility;
 
     public class Startup
     {
