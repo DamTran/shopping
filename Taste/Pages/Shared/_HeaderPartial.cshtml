@@ -17,28 +17,16 @@
                 <a class="text-my-shope" asp-area="" asp-page="/Index">TASTE</a>
             </h1>
         </div>
-        <div class="col-4 text-right nav-link text-white d-flex">
-            <span class="input-group mb-3 float-left">
-                <input type="text" class="form-control" placeholder="Search">
-                <span class="input-group-append">
-                    <a class="btn btn-success"><i class="fas fa-search"></i></a>
-                </span>
-            </span>
-            @if (HttpContextAccessor.HttpContext.Session.GetInt32(SD.ShoppingCart) != null)
-            {
-                <a asp-page="/Customer/Cart/Index" class="m-1 text-my-shope">
-                    @{
-                        var count = HttpContextAccessor.HttpContext.Session.GetInt32(SD.ShoppingCart);
-                    }
-                    <i class="fas fa-shopping-cart">(@count)</i>
-                </a>
-            }
-            else
-            {
-                <a href="#" class="m-2 h4">
-                    <i class="fas fa-shopping-cart text-my-shope">(0)</i>
-                </a>
-            }
+        <div class="col-4 text-right nav-link">
+            <a href="#" title="Search">
+                <i class="fa fa-2x fa-search"></i>
+            </a>
+            <a asp-page="/Cart/Index" title="Go to your cart" rel="nofollow">
+                <i class="fa fa-2x fa-shopping-cart"></i>
+            </a>
+            <a asp-page="/SignIn/Index" title="Sign in" rel="nofollow">
+                <i class="fa fa-2x fa-user-circle"></i>
+            </a>
         </div>
     </div>
 </div>
@@ -53,37 +41,53 @@
         <div class="navbar-collapse collapse d-sm-flex">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" asp-area="" asp-page="/Home/Index"><i class="fa fa-home"></i></a>
+                    <a class="nav-link text-white" asp-area="" asp-page="/Home/Index">
+                        <i class="fa fa-home"></i>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" asp-area="" asp-page="/AboutUs/Index">About Us</a>
+                    <a class="nav-link text-white" asp-area="" asp-page="/AboutUs/Index">
+                        About Us
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" asp-area="" asp-page="/Products/Index">Products</a>
+                    <a class="nav-link text-white" asp-area="" asp-page="/Products/Index">
+                        Products
+                    </a>
                 </li>
                 @if (User.IsInRole(SD.ManagerRole) || User.IsInRole(SD.KitchenRole))
                 {
                     <li class="nav-item">
-                        <a class="nav-link text-white" asp-page="/Admin/Order/ManageOrder">Manage Order</a>
+                        <a class="nav-link text-white" asp-page="/Admin/Order/ManageOrder">
+                            Manage Order
+                        </a>
                     </li>
                 }
                 @if (User.IsInRole(SD.ManagerRole) || User.IsInRole(SD.FrontDeskRole))
                 {
                     <li class="nav-item">
-                        <a class="nav-link text-white" asp-page="/Admin/Order/OrderList">Order Pickup</a>
+                        <a class="nav-link text-white" asp-page="/Admin/Order/OrderList">
+                            Order Pickup
+                        </a>
                     </li>
                 }
                 @if (User.IsInRole(SD.CustomerRole))
                 {
                     <li class="nav-item">
-                        <a class="nav-link text-white" asp-page="/Admin/Order/OrderList">Order History</a>
+                        <a class="nav-link text-white" asp-page="/Admin/Order/OrderList">
+                            Order History
+                        </a>
                     </li>
                 }
                 <li class="nav-item">
-                    <a class="nav-link text-white" asp-area="" asp-page="/Blog/Index">Blog</a>
+                    <a class="nav-link text-white" asp-area="" asp-page="/Blog/Index">
+                        Blog
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" asp-area="" asp-page="/ContactUs/Index">Contact Us</a>
+                    <a class="nav-link text-white" asp-area="" asp-page="/ContactUs/Index">
+                        Contact Us
+                    </a>
                 </li>
                 @if (User.IsInRole(SD.ManagerRole))
                 {
