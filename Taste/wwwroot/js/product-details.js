@@ -1,5 +1,4 @@
-﻿
-$('.btn-number').click(function (e) {
+﻿$('.btn-number').click(function (e) {
     e.preventDefault();
 
     fieldName = $(this).attr('data-field');
@@ -8,23 +7,19 @@ $('.btn-number').click(function (e) {
     var currentVal = parseInt(input.val());
     if (!isNaN(currentVal)) {
         if (type == 'minus') {
-
             if (currentVal > input.attr('min')) {
                 input.val(currentVal - 1).change();
             }
             if (parseInt(input.val()) == input.attr('min')) {
                 $(this).attr('disabled', true);
             }
-
         } else if (type == 'plus') {
-
             if (currentVal < input.attr('max')) {
                 input.val(currentVal + 1).change();
             }
             if (parseInt(input.val()) == input.attr('max')) {
                 $(this).attr('disabled', true);
             }
-
         }
     } else {
         input.val(0);
@@ -34,7 +29,6 @@ $('.input-number').focusin(function () {
     $(this).data('oldValue', $(this).val());
 });
 $('.input-number').change(function () {
-
     minValue = parseInt($(this).attr('min'));
     maxValue = parseInt($(this).attr('max'));
     valueCurrent = parseInt($(this).val());
@@ -52,8 +46,6 @@ $('.input-number').change(function () {
         alert('Sorry, the maximum value was reached');
         $(this).val($(this).data('oldValue'));
     }
-
-
 });
 $(".input-number").keydown(function (e) {
     // Allow: backspace, delete, tab, escape, enter and .
