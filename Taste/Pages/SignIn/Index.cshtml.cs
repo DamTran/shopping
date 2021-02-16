@@ -2,7 +2,7 @@
 {
     public class IndexModel : ApplicationPageModel
     {
-        public override string Title => "Login";
+        public override string Title => "Sign In";
 
         public IndexModel()
         {
