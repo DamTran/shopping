@@ -5,6 +5,9 @@
 
 .brand-wrapper {
     margin-bottom: 19px;
+    font-size: 1.5rem;
+    text-decoration: none !important;
+    color: initial !important;
 }
 
 .brand-wrapper .logo {
