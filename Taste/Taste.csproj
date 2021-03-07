@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Taste.DataAccess\Taste.DataAccess.csproj" />
+    <ProjectReference Include="..\Taste.Logging.LiteDB\Taste.Logging.LiteDB.csproj" />
     <ProjectReference Include="..\Taste.Models\Taste.Models.csproj" />
   </ItemGroup>
 
