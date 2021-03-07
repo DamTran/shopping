@@ -41,9 +41,8 @@ namespace Taste
                     options.UseSqlServer(Configuration.GetConnectionString("SQLServer"));
                 }
             });
-            string localConnectionString = Configuration.GetConnectionString("SQLite");
-            string remoteConnectionString = Configuration.GetConnectionString("MySQL");
-            services.AddSingleton<IDbConnectionProvider, DbConnectionProvider>(factory => new DbConnectionProvider(localConnectionString, remoteConnectionString));
+            string connectionString = Configuration.GetConnectionString("SQLite");
+            services.AddSingleton<ITasteDbConnectionProvider, SqLiteTasteDbConnectionProvider>(factory => new SqLiteTasteDbConnectionProvider(connectionString));
 
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddDefaultTokenProviders()

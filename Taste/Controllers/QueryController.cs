@@ -2,19 +2,25 @@
 {
     using Dapper;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Net;
     using Taste.DataAccess.DbConnectionProvider;
+    using Taste.Utility.Enums;
+    using Taste.Utility.Exceptions;
 
     [Route("api")]
     [ApiController]
     public class QueryController : Controller
     {
-        private readonly IDbConnectionProvider _dbConnectionProvider;
+        private readonly ILogger<QueryController> _logger;
+        private readonly ITasteDbConnectionProvider _dbConnectionProvider;
 
-        public QueryController(IDbConnectionProvider dbConnectionProvider)
+        public QueryController(ILogger<QueryController> logger, ITasteDbConnectionProvider dbConnectionProvider)
         {
+            _logger = logger;
             _dbConnectionProvider = dbConnectionProvider;
         }
 
@@ -25,12 +31,13 @@
                 .FirstOrDefault(kvp => string.Equals(kvp.Key, queryName, StringComparison.OrdinalIgnoreCase));
             if (selectedQuery.Equals(default(KeyValuePair<string, string>)))
             {
-                var exception = new Exception("Invalid API call.");
+                var exception = new HandledException(ErrorCodeEnum.InvalidApi);
+                _logger.LogWarning(exception.ErrorNumber, exception.Message);
                 return BadRequest(exception);
             }
 
             string query = selectedQuery.Value;
-            using (var connection = _dbConnectionProvider.GetRemoteDbConnection())
+            using (var connection = _dbConnectionProvider.GetDbConnection())
             {
                 try
                 {
@@ -41,7 +48,7 @@
                 {
                     return Problem(
                         detail: ex.StackTrace
-                        , statusCode: 500
+                        , statusCode: (int)HttpStatusCode.InternalServerError
                         , title: ex.Message
                         , type: ex.GetType().FullName
                         );
@@ -61,7 +68,7 @@
             }
 
             string query = selectedQuery.Value;
-            using (var connection = _dbConnectionProvider.GetRemoteDbConnection())
+            using (var connection = _dbConnectionProvider.GetDbConnection())
             {
                 try
                 {

@@ -2,16 +2,13 @@ namespace Taste.DataAccess.DbConnectionProvider
 {
     using System.Collections.Generic;
     using System.Data;
-    using System.Data.SQLite;
 
-    public interface IDbConnectionProvider
+    public interface ITasteDbConnectionProvider
     {
         IDictionary<string, string> Queries { get; }
 
-        SQLiteConnection GetLocalDbConnection();
+        IDbConnection GetDbConnection();
 
         void RefreshQueries();
-
-        IDbConnection GetRemoteDbConnection();
     }
 }

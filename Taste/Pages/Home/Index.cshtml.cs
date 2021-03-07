@@ -10,9 +10,9 @@
 
     public class IndexModel : ApplicationPageModel
     {
-        private readonly IDbConnectionProvider _dbConnectionProvider;
+        private readonly ITasteDbConnectionProvider _dbConnectionProvider;
 
-        public IndexModel(IDbConnectionProvider dbConnectionProvider)
+        public IndexModel(ITasteDbConnectionProvider dbConnectionProvider)
         {
             _dbConnectionProvider = dbConnectionProvider;
         }
@@ -26,7 +26,7 @@
             var claimsIdentity = (ClaimsIdentity)this.User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-            using (var connection = _dbConnectionProvider.GetRemoteDbConnection())
+            using (var connection = _dbConnectionProvider.GetDbConnection())
             {
                 connection.Open();
 
