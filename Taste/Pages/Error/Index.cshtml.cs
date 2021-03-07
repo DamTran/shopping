@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Diagnostics;
 using System.Net;
-using Taste.Enums;
+using Taste.Utility.Enums;
 using Taste.Utility.Helpers;
 
 namespace Taste.Pages.Error
